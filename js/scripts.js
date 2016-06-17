@@ -17,7 +17,17 @@ Pizza.prototype.calculateSizePrice = function () {
 }
 
 Pizza.prototype.addToppings = function () {
-  for (i=0; i<this.pizzaToppings.length; i++) {
-    this.pizzaPrice += 1;
+  if (this.pizzaSize === "small") {
+    for (i=0; i<this.pizzaToppings.length; i++) {
+      this.pizzaPrice += .50;
+    }
+  } else if (this.pizzaSize === "medium") {
+    for (i=0; i<this.pizzaToppings.length; i++) {
+      this.pizzaPrice += .75;
+    }
+  } else {
+    for (i=0; i<this.pizzaToppings.length; i++) {
+      this.pizzaPrice += 1;
+    }
   }
 }
