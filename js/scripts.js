@@ -154,6 +154,11 @@ $(function(){
       //Update New Order Object
       newOrder.deliveryAddress = inputtedAddress;
       newOrder.deliveryTime = inputtedTime;
+      //Update Confirmation with Address and Time
+      $("#delivery-street").text(inputtedAddress.deliveryStreet);
+      $("#delivery-city").text(inputtedAddress.deliveryCity);
+      $("#delivery-state").text(inputtedAddress.deliveryState);
+      $("#delivery-time").text(newOrder.deliveryTime);
       //Display Address and Delivery Time Confirmation
       $("#delivery-form").hide();
       $("#delivery-confirmation").show();
