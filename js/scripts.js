@@ -37,13 +37,23 @@ Pizza.prototype.addToppings = function () {
     }
   }
 }
-///Bug - Need to loop through each pizza in newOrder's pizzaOrder array, calculate each pizza's price, and add the pizza prices to the total price.
+
 Order.prototype.calculateIndividualPizzaPrices = function () {
   (this.orderPizzas).forEach(function(object){
     object.calculateSizePrice();
     object.addToppings();
   });
 }
+
+Order.prototype.calculateTotalPrice = function () {
+  var totalPrice = 0;
+  (this.orderPizzas).forEach(function(object){
+    totalPrice += object.pizzaPrice;
+  });
+  console.log(totalPrice);
+  debugger;
+}
+
 //User Interface Logic
 $(function(){
   //Add Another Pizza Button Functionality
@@ -112,8 +122,7 @@ $(function(){
     });
     //Calculate and Display Price
     newOrder.calculateIndividualPizzaPrices();
-    console.log(newOrder);
-    debugger;
+    newOrder.calculateTotalPrice();
 
     $("#pizza-size").text(newPizza.pizzaSize);
     if (newPizza.pizzaToppings.length < 1) {
