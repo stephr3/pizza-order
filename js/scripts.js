@@ -50,8 +50,7 @@ Order.prototype.calculateTotalPrice = function () {
   (this.orderPizzas).forEach(function(object){
     totalPrice += object.pizzaPrice;
   });
-  console.log(totalPrice);
-  debugger;
+  return totalPrice;
 }
 
 //User Interface Logic
@@ -122,15 +121,15 @@ $(function(){
     });
     //Calculate and Display Price
     newOrder.calculateIndividualPizzaPrices();
-    newOrder.calculateTotalPrice();
+    var totalDisplayPrice = newOrder.calculateTotalPrice();
 
-    $("#pizza-size").text(newPizza.pizzaSize);
-    if (newPizza.pizzaToppings.length < 1) {
-      $("#toppings").text("none selected");
-    } else {
-      $("#toppings").text((newPizza.pizzaToppings).join(", "));
-    }
-    $("#total-price").text(newPizza.pizzaPrice.toFixed(2));
+    // $("#pizza-size").text(newPizza.pizzaSize);
+    // if (newPizza.pizzaToppings.length < 1) {
+    //   $("#toppings").text("none selected");
+    // } else {
+    //   $("#toppings").text((newPizza.pizzaToppings).join(", "));
+    // }
+    $("#total-price").text(totalDisplayPrice.toFixed(2));
     $("#display-price").show();
   });
 });
