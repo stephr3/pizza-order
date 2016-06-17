@@ -1,10 +1,15 @@
 //Business Logic
 //Set Objects
+function Order (name) {
+  this.orderName = name;
+  this.orderPizzas = [];
+}
+
 function Pizza (size, toppings, price) {
   this.pizzaSize = size;
   this.pizzaToppings = toppings;
   this.pizzaPrice = price;
-};
+}
 //Set Prototypes
 Pizza.prototype.calculateSizePrice = function () {
   if (this.pizzaSize === "small"){
@@ -37,13 +42,20 @@ $(function(){
   $("form").submit(function(event){
     event.preventDefault();
     //Set Variables
+    var name = $("#name").val();
     var size = $("input:radio[name=size]:checked").val();
     var toppings = [];
     $('input[name="toppings"]:checked').each(function() {
       (toppings).push(this.value);
     });
-    //Create New Object
+    //Create New Objects
+    var newOrder = new Order (name);
+    console.log(newOrder);
     var newPizza = new Pizza (size, toppings);
+    console.log(newPizza);
+    newOrder.orderPizzas.push(newPizza);
+    console.log(newOrder);
+    debugger;
     //Calculate and Display Price
     newPizza.calculateSizePrice();
     newPizza.addToppings();
