@@ -48,7 +48,11 @@ $(function(){
     newPizza.calculateSizePrice();
     newPizza.addToppings();
     $("#pizza-size").text(newPizza.pizzaSize);
-    $("#toppings").text((newPizza.pizzaToppings).join(", "));
+    if (newPizza.pizzaToppings.length < 1) {
+      $("#toppings").text("none selected");
+    } else {
+      $("#toppings").text((newPizza.pizzaToppings).join(", "));
+    }
     $("#total-price").text(newPizza.pizzaPrice.toFixed(2));
     $("#display-price").show();
   });
