@@ -136,7 +136,7 @@ $(function(){
         }
       };
       var toppingsText = findToppingsText(pizza);
-      $("ul#pizzas-ordered").append("<li>Pizza Size: " + pizza.pizzaSize + "<br>Extra Toppings: " + toppingsText + "</li><br>");
+      $("ul#pizzas-ordered").append("<li>Pizza Size: " + pizza.pizzaSize + "<br>Extra Toppings: " + toppingsText + "</li>");
     });
     $("#total-price").text(totalPrice.toFixed(2));
     //Hide Form and Display Confimation Page

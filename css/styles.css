@@ -1,9 +1,48 @@
 /*General Styling*/
+body {
+  background-color: #b11c17;
+  color: #faebd7;
+  padding-bottom: 5%;
+}
+
+h1 {
+  color: #e1d800;
+  font-size: 4em;
+  margin-bottom: 5%;
+  text-align: center;
+}
+
+label {
+  font-size: 1.2em;
+  font-weight: normal;
+}
+
+li {
+  margin-bottom: 5%;
+}
+
+ul {
+  font-size: 1.5em;
+  list-style: none;
+}
+
 .btn {
-  margin-top: 2vh;
+  margin: 5% 0;
   min-width: 170px;
 }
 
+.centered {
+  margin: auto;
+  width: 60%;
+}
+
+.container {
+  max-width: 80%;
+}
+
+.yellow {
+  color: #e1d800;
+}
 /*Display Page*/
 #display-price {
   display: none;
@@ -16,4 +55,13 @@
 
 #delivery-confirmation {
   display: none;
+}
+
+#delivery-confirmation ul {
+  font-size: 1.3em;
+}
+
+#new-delivery-time {
+  font-color: black;
+  background-color: red;
 }

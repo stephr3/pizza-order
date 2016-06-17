@@ -12,68 +12,70 @@
     <div class="container">
       <div id="order-form-page">
         <h1>Welcome to Pizza Time!</h1>
-        <form id="order-form">
-          <div class="form-group">
-            <label for="name">Please enter your name.</label>
-            <input type="text" id="name" class="form-control">
-          </div>
-          <div id="new-pizzas">
-            <div class="new-pizza">
-              <div class="form-group">
-                <label for="select-size">Choose your pizza size:</label>
-                <select class="form-control" id="select-size">
-                  <option>Small</option>
-                  <option>Medium</option>
-                  <option>Large</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="toppings">Select extra toppings:</label>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" name="toppings" value="Pepperoni">
-                    Pepperoni
-                  </label>
+        <div class="centered">
+          <form id="order-form">
+            <div class="form-group">
+              <label for="name">Please enter your name.</label>
+              <input type="text" id="name" class="form-control">
+            </div>
+            <div id="new-pizzas">
+              <div class="new-pizza">
+                <div class="form-group">
+                  <label for="select-size">Choose your pizza size:</label>
+                  <select class="form-control" id="select-size">
+                    <option>Small</option>
+                    <option>Medium</option>
+                    <option>Large</option>
+                  </select>
                 </div>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" name="toppings" value="Sausage">
-                    Sausage
-                  </label>
-                </div>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" name="toppings" value="Bell Peppers">
-                    Bell Peppers
-                  </label>
-                </div>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" name="toppings" value="Olives">
-                    Olives
-                  </label>
-                </div>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" name="toppings" value="Extra Cheese">
-                    Extra Cheese
-                  </label>
+                <div class="form-group">
+                  <label for="toppings">Select extra toppings:</label>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="toppings" value="Pepperoni">
+                      Pepperoni
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="toppings" value="Sausage">
+                      Sausage
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="toppings" value="Bell Peppers">
+                      Bell Peppers
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="toppings" value="Olives">
+                      Olives
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="toppings" value="Extra Cheese">
+                      Extra Cheese
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <span class="btn btn-success" id="add-pizza">Add Another Pizza</span>
-          <br>
-          <button type="submit" class="btn btn-danger">Calculate Total Price</button>
-        </form>
+            <span class="btn btn-success" id="add-pizza">Add Another Pizza</span>
+            <br>
+            <button type="submit" class="btn btn-danger">Calculate Total Price</button>
+          </form>
+        </div>
       </div>
-      <div id="display-price">
-        <h2>Thank you for your order, <span id="user-name"></span>!</h2>
+      <div id="display-price" class="centered">
+        <h1>Thank you for your order, <span id="user-name"></span>!</h1>
         <h3>Pizzas Ordered:</h3>
         <ul id="pizzas-ordered">
 
         </ul>
-        <h2>Your total price is $<span id="total-price"></span></h2>
+        <h2 class="yellow">Your total price is $<span id="total-price"></span></h2>
         <span class="btn btn-danger" id="add-delivery">Get Delivery</span>
         <br>
         <span class="btn btn-success" id="new-order">Make a New Order</span>
