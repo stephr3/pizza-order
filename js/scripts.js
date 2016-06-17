@@ -143,10 +143,10 @@ $(function(){
     //Reset Form
     document.getElementById("order-form").reset();
     //Clear Appended Form Input Divs
-
+    $(".new-pizza").not(":first-child").remove();
     //Clear Appended UL
     $("ul#pizzas-ordered").empty();
-    //Hide and Show
+    //Hide and Show Divs
     $("#order-form-page").show();
     $("#display-price").hide();
   });
