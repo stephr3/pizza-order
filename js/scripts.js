@@ -5,7 +5,6 @@ function Order (name, total) {
   this.totalPrice = total;
   this.orderPizzas = [];
 }
-
 function Pizza (size, toppings, price) {
   this.pizzaSize = size;
   this.pizzaToppings = toppings;
@@ -21,7 +20,6 @@ Pizza.prototype.calculateSizePrice = function () {
     this.pizzaPrice = 11;
   }
 }
-
 Pizza.prototype.addToppings = function () {
   if (this.pizzaSize === "Small") {
     for (i=0; i<this.pizzaToppings.length; i++) {
@@ -37,14 +35,12 @@ Pizza.prototype.addToppings = function () {
     }
   }
 }
-
 Order.prototype.calculateIndividualPizzaPrices = function () {
   (this.orderPizzas).forEach(function(object){
     object.calculateSizePrice();
     object.addToppings();
   });
 }
-
 Order.prototype.calculateTotalPrice = function () {
   var totalPrice = 0;
   (this.orderPizzas).forEach(function(object){
@@ -52,7 +48,6 @@ Order.prototype.calculateTotalPrice = function () {
   });
   return totalPrice;
 }
-
 //User Interface Logic
 $(function(){
   //Add Another Pizza Button Functionality
@@ -103,7 +98,7 @@ $(function(){
       "</div>");
   });
   //Submit Button Functionality
-  $("form").submit(function(event){
+  $("form#order-form").submit(function(event){
     event.preventDefault();
     //Create New Order Objects
     var name = $("#name").val();
@@ -136,6 +131,7 @@ $(function(){
       $("ul#pizzas-ordered").append("<li>Pizza Size: " + pizza.pizzaSize + "<br>Extra Toppings: " + toppingsText + "</li><br>");
     });
     $("#total-price").text(totalDisplayPrice.toFixed(2));
+    //Hide Form and Display Confimation Page
     $("#order-form-page").hide();
     $("#display-price").show();
   });

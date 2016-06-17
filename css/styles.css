@@ -1,8 +1,10 @@
-#display-price {
-  display: none;
-}
-
+/*General Styling*/
 .btn {
   margin-top: 2vh;
   min-width: 170px;
+}
+
+/*Display Page*/
+#display-price {
+  display: none;
 }
