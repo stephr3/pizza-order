@@ -165,8 +165,9 @@ $(function(){
     });
   });
   $("#new-order").click(function() {
-    //Reset Form
+    //Reset Forms
     document.getElementById("order-form").reset();
+    document.getElementById("address-form").reset();
     //Clear Appended Form Input Divs
     $(".new-pizza").not(":first-child").remove();
     //Clear Appended UL
@@ -174,6 +175,7 @@ $(function(){
     //Hide and Show Divs
     $("#order-form-page").show();
     $("#display-price").hide();
+    $("#delivery-confirmation").hide();
   });
   //Add Delivery Button Functionality
   $("#add-delivery").click(function(){
