@@ -44,5 +44,8 @@ $(function(){
     });
     //Create New Object
     var newPizza = new Pizza (size, toppings);
+    newPizza.calculateSizePrice();
+    newPizza.addToppings();
+    alert("Your total is $" + newPizza.pizzaPrice.toFixed(2));
   });
 });
