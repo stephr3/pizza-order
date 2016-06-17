@@ -3,6 +3,7 @@
 function Order (name) {
   this.orderName = name;
   this.orderPizzas = [];
+  this.totalPrice = 0;
 }
 
 function Pizza (size, toppings, price) {
@@ -12,21 +13,21 @@ function Pizza (size, toppings, price) {
 }
 //Set Prototypes
 Pizza.prototype.calculateSizePrice = function () {
-  if (this.pizzaSize === "small"){
-    return this.pizzaPrice = 7;
-  } else if (this.pizzaSize === "medium") {
-    return this.pizzaPrice = 9;
+  if (this.pizzaSize === "Small"){
+    this.pizzaPrice = 7;
+  } else if (this.pizzaSize === "Medium") {
+    this.pizzaPrice = 9;
   } else {
-    return this.pizzaPrice = 11;
+    this.pizzaPrice = 11;
   }
 }
 
 Pizza.prototype.addToppings = function () {
-  if (this.pizzaSize === "small") {
+  if (this.pizzaSize === "Small") {
     for (i=0; i<this.pizzaToppings.length; i++) {
       this.pizzaPrice += .50;
     }
-  } else if (this.pizzaSize === "medium") {
+  } else if (this.pizzaSize === "Medium") {
     for (i=0; i<this.pizzaToppings.length; i++) {
       this.pizzaPrice += .75;
     }
@@ -36,7 +37,18 @@ Pizza.prototype.addToppings = function () {
     }
   }
 }
-
+///Bug - Need to loop through each pizza in newOrder's pizzaOrder array, calculate each pizza's price, and add the pizza prices to the total price. 
+Order.prototype.calculateTotalPrice = function () {
+  var onePizzaPrice = function (order){
+    debugger;
+    (order.orderPizzas).forEach(function(object){
+      object.calculateSizePrice();
+      object.addToppings();
+      return object.pizzaPrice;
+      });
+  }
+  this.totalPrice += (onePizzaPrice(this));
+}
 //User Interface Logic
 $(function(){
   //Add Another Pizza Button Functionality
@@ -92,6 +104,7 @@ $(function(){
     //Create New Order Objects
     var name = $("#name").val();
     var newOrder = new Order (name);
+    newOrder.totalPrice = 0;
     //Create New Pizza Objects
     $(".new-pizza").each(function() {
       var size = $(this).find("#select-size").val();
@@ -102,11 +115,9 @@ $(function(){
       var newPizza = new Pizza(size, toppings);
       newOrder.orderPizzas.push(newPizza);
     });
-    console.log(newOrder);
-    debugger;
     //Calculate and Display Price
-    newPizza.calculateSizePrice();
-    newPizza.addToppings();
+    newOrder.calculateTotalPrice();
+
     $("#pizza-size").text(newPizza.pizzaSize);
     if (newPizza.pizzaToppings.length < 1) {
       $("#toppings").text("none selected");
