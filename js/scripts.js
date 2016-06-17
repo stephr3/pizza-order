@@ -5,6 +5,7 @@ function Order (name, total) {
   this.totalPrice = total;
   this.orderPizzas = [];
   this.deliveryAddress;
+  this.deliveryTime;
 }
 function Pizza (size, toppings, price) {
   this.pizzaSize = size;
@@ -149,7 +150,9 @@ $(function(){
       var inputtedCity = $("input#new-city").val();
       var inputtedState = $("input#new-state").val();
       var inputtedAddress = new Address (inputtedStreet, inputtedCity, inputtedState);
+      var inputtedTime = $("input#new-delivery-time").val();
       newOrder.deliveryAddress = inputtedAddress;
+      newOrder.deliveryTime = inputtedTime;
       console.log(newOrder);
     });
   });
