@@ -79,6 +79,7 @@
         <span class="btn btn-success" id="new-order">Make a New Order</span>
         <div id="delivery-form">
           <form id="address-form">
+            <label>Enter your address:</label>
             <div class="form-group">
               <label for="new-street">Street</label>
               <input type="text" id="new-street" class="form-control">
@@ -91,7 +92,11 @@
               <label for="new-state">State</label>
               <input type="text" id="new-state" class="form-control">
             </div>
-            <button type="submit" class="btn btn-success">Submit Address</button> 
+            <div class="form-group">
+              <label for="delivery-time">Select a Delivery Time:</label>
+              <input type="time" id="new-delivery-time">
+            </div>
+            <button type="submit" class="btn btn-success">Submit Address</button>
           </form>
         </div>
       </div>

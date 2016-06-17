@@ -8,3 +8,8 @@
 #display-price {
   display: none;
 }
+
+/*Delivery Page*/
+#delivery-form {
+  display: none;
+}

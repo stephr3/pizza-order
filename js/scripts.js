@@ -4,11 +4,17 @@ function Order (name, total) {
   this.orderName = name;
   this.totalPrice = total;
   this.orderPizzas = [];
+  this.deliveryAddress = [];
 }
 function Pizza (size, toppings, price) {
   this.pizzaSize = size;
   this.pizzaToppings = toppings;
   this.pizzaPrice = price;
+}
+function Address (street, city, state) {
+  this.deliveryStreet = street;
+  this.deliveryCity = city;
+  this.deliveryState = state;
 }
 //Set Prototypes
 Pizza.prototype.calculateSizePrice = function () {
@@ -145,5 +151,18 @@ $(function(){
     //Hide and Show Divs
     $("#order-form-page").show();
     $("#display-price").hide();
+  });
+  //Add Delivery Button Functionality
+  $("#add-delivery").click(function(){
+    $("#delivery-form").show();
+  });
+  //Submit Address Button Functionality
+  $("#address-form").submit(function(event){
+    event.preventDefault();
+    //Set Variables
+    var inputtedStreet = $("input#new-street").val();
+    var inputtedCity = $("input#new-city").val();
+    var inputtedState = $("input#new-state").val();
+    alert(inputtedStreet + inputtedCity + inputtedState);
   });
 });
