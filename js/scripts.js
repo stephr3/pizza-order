@@ -71,31 +71,31 @@ $(function(){
           "<label for='toppings'>Select extra toppings:</label>" +
           "<div class='checkbox'>" +
             "<label>" +
-              "<input type='checkbox' name='toppings' value='pepperoni'>" +
+              "<input type='checkbox' name='toppings' value='Pepperoni'>" +
               "Pepperoni" +
             "</label>" +
           "</div>" +
           "<div class='checkbox'>" +
             "<label>" +
-              "<input type='checkbox' name='toppings' value='sausage'>" +
+              "<input type='checkbox' name='toppings' value='Sausage'>" +
               "Sausage" +
             "</label>" +
           "</div>" +
           "<div class='checkbox'>" +
             "<label>" +
-              "<input type='checkbox' name='toppings' value='bell-peppers'>" +
+              "<input type='checkbox' name='toppings' value='Bell Peppers'>" +
               "Bell Peppers" +
             "</label>" +
           "</div>" +
           "<div class='checkbox'>" +
             "<label>" +
-              "<input type='checkbox' name='toppings' value='olives'>" +
+              "<input type='checkbox' name='toppings' value='Olives'>" +
               "Olives" +
             "</label>" +
           "</div>" +
           "<div class='checkbox'>" +
             "<label>" +
-              "<input type='checkbox' name='toppings' value='extra-cheese'>" +
+              "<input type='checkbox' name='toppings' value='Extra Cheese'>" +
               "Extra Cheese" +
             "</label>" +
           "</div>" +
@@ -119,19 +119,21 @@ $(function(){
       var newPizza = new Pizza(size, toppings);
       newOrder.orderPizzas.push(newPizza);
     });
-    //Calculate and Display Price
+    //Calculate Total Price
     newOrder.calculateIndividualPizzaPrices();
     var totalDisplayPrice = newOrder.calculateTotalPrice();
-
-    // $("#pizza-size").text(newPizza.pizzaSize);
-    // if (newPizza.pizzaToppings.length < 1) {
-    //   $("#toppings").text("none selected");
-    // } else {
-    //   $("#toppings").text((newPizza.pizzaToppings).join(", "));
-    // }
+    //Display Price and Order Confirmation
     $("#user-name").text(newOrder.orderName);
     newOrder.orderPizzas.forEach(function(pizza) {
-      $("ul#pizzas-ordered").append("<li>Pizza Size: " + pizza.pizzaSize + "<br>Extra Toppings: " + pizza.pizzaToppings + "</li><br>");
+      var findToppingsText = function (pizza) {
+        if (pizza.pizzaToppings.length < 1) {
+          return "None Selected"
+        } else {
+          return pizza.pizzaToppings.join(", ");
+        }
+      };
+      var toppingsText = findToppingsText(pizza);
+      $("ul#pizzas-ordered").append("<li>Pizza Size: " + pizza.pizzaSize + "<br>Extra Toppings: " + toppingsText + "</li><br>");
     });
     $("#total-price").text(totalDisplayPrice.toFixed(2));
     $("#display-price").show();
