@@ -39,6 +39,65 @@ Pizza.prototype.addToppings = function () {
 
 //User Interface Logic
 $(function(){
+  //Add Another Pizza Button Functionality
+  $("#add-pizza").click(function() {
+    $("#new-pizzas").append(
+      "<div class='form-group'>" +
+          "<label for='size'>Choose your pizza size:</label>" +
+          "<div class='radio'>" +
+          "<label>" +
+            "<input type='radio' name='size' value='small' checked>" +
+            "Small" +
+          "</label>" +
+        "</div>" +
+        "<div class='radio'>" +
+          "<label>" +
+            "<input type='radio' name='size' value='medium'>" +
+            "Medium" +
+          "</label>" +
+        "</div>" +
+        "<div class='radio'>" +
+          "<label>" +
+            "<input type='radio' name='size' value='large'>" +
+            "Large" +
+          "</label>" +
+        "</div>" +
+      "</div>" +
+      "<div class='form-group'>" +
+        "<label for='toppings'>Select extra toppings:</label>" +
+        "<div class='checkbox'>" +
+          "<label>" +
+            "<input type='checkbox' name='toppings' value='pepperoni'>" +
+            "Pepperoni" +
+          "</label>" +
+        "</div>" +
+        "<div class='checkbox'>" +
+          "<label>" +
+            "<input type='checkbox' name='toppings' value='sausage'>" +
+            "Sausage" +
+          "</label>" +
+        "</div>" +
+        "<div class='checkbox'>" +
+          "<label>" +
+            "<input type='checkbox' name='toppings' value='bell-peppers'>" +
+            "Bell Peppers" +
+          "</label>" +
+        "</div>" +
+        "<div class='checkbox'>" +
+          "<label>" +
+            "<input type='checkbox' name='toppings' value='olives'>" +
+            "Olives" +
+          "</label>" +
+        "</div>" +
+        "<div class='checkbox'>" +
+          "<label>" +
+            "<input type='checkbox' name='toppings' value='extra-cheese'>" +
+            "Extra Cheese" +
+          "</label>" +
+        "</div>" +
+      "</div>");
+  });
+  //Submit Button Functionality
   $("form").submit(function(event){
     event.preventDefault();
     //Set Variables
