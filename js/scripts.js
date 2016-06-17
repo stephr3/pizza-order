@@ -44,25 +44,12 @@ $(function(){
     $("#new-pizzas").append(
       "<div class='new-pizza'>" +
         "<div class='form-group'>" +
-            "<label for='size'>Choose your pizza size:</label>" +
-            "<div class='radio'>" +
-            "<label>" +
-              "<input type='radio' name='size' value='small' checked>" +
-              "Small" +
-            "</label>" +
-          "</div>" +
-          "<div class='radio'>" +
-            "<label>" +
-              "<input type='radio' name='size' value='medium'>" +
-              "Medium" +
-            "</label>" +
-          "</div>" +
-          "<div class='radio'>" +
-            "<label>" +
-              "<input type='radio' name='size' value='large'>" +
-              "Large" +
-            "</label>" +
-          "</div>" +
+          "<label for='select-size'>Choose your pizza size:</label>" +
+          "<select class='form-control' id='select-size'>" +
+            "<option>Small</option>" +
+            "<option>Medium</option>" +
+            "<option>Large</option>" +
+          "</select>" +
         "</div>" +
         "<div class='form-group'>" +
           "<label for='toppings'>Select extra toppings:</label>" +
@@ -107,7 +94,7 @@ $(function(){
     var newOrder = new Order (name);
     //Create New Pizza Objects
     $(".new-pizza").each(function() {
-      var size = $(this).find("input:radio[name=size]:checked").val();
+      var size = $(this).find("#select-size").val();
       var toppings = [];
       $($(this).find('input[name="toppings"]:checked')).each(function() {
         (toppings).push(this.value);
