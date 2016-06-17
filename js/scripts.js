@@ -31,3 +31,16 @@ Pizza.prototype.addToppings = function () {
     }
   }
 }
+
+//User Interface Logic
+$(function(){
+  $("form").submit(function(event){
+    event.preventDefault();
+    //Set Variables
+    var size = $("input:radio[name=size]:checked").val();
+    var toppings = [];
+    $('input[name="toppings"]:checked').each(function() {
+      (toppings).push(this.value);
+    });
+  });
+});
