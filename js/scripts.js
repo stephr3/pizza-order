@@ -142,6 +142,7 @@ $(function(){
     //Hide Form and Display Confimation Page
     $("#order-form-page").hide();
     $("#display-price").show();
+    $("#add-delivery").show();
     //Submit Address Button Functionality
     $("#address-form").submit(function(event){
       event.preventDefault();
@@ -179,6 +180,7 @@ $(function(){
   });
   //Add Delivery Button Functionality
   $("#add-delivery").click(function(){
+    $("#add-delivery").hide();
     $("#delivery-form").show();
   });
 });
