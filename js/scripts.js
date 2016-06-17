@@ -129,13 +129,10 @@ $(function(){
     // } else {
     //   $("#toppings").text((newPizza.pizzaToppings).join(", "));
     // }
-
-    // $("ul#addresses").text("");
-    // newContact.addresses.forEach(function(address) {
-    //   $("ul#addresses").append("<li>" + address.street + ", " + address.city + " " + address.state + "</li>");
-    // });
-
     $("#user-name").text(newOrder.orderName);
+    newOrder.orderPizzas.forEach(function(pizza) {
+      $("ul#pizzas-ordered").append("<li>Pizza Size: " + pizza.pizzaSize + "<br>Extra Toppings: " + pizza.pizzaToppings + "</li><br>");
+    });
     $("#total-price").text(totalDisplayPrice.toFixed(2));
     $("#display-price").show();
   });
