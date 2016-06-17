@@ -42,5 +42,7 @@ $(function(){
     $('input[name="toppings"]:checked').each(function() {
       (toppings).push(this.value);
     });
+    //Create New Object
+    var newPizza = new Pizza (size, toppings);
   });
 });
