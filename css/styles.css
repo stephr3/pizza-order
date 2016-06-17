@@ -2,7 +2,7 @@
   display: none;
 }
 
-button {
+.btn {
   margin-top: 2vh;
   min-width: 170px;
 }

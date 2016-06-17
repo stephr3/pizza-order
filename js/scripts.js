@@ -143,7 +143,9 @@ $(function(){
     //Reset Form
     document.getElementById("order-form").reset();
     //Clear Appended Form Input Divs
+
     //Clear Appended UL
+    $("ul#pizzas-ordered").empty();
     //Hide and Show
     $("#order-form-page").show();
     $("#display-price").hide();
