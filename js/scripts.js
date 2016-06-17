@@ -47,6 +47,8 @@ $(function(){
     //Calculate and Display Price
     newPizza.calculateSizePrice();
     newPizza.addToppings();
+    $("#pizza-size").text(newPizza.pizzaSize);
+    $("#toppings").text((newPizza.pizzaToppings).join(", "));
     $("#total-price").text(newPizza.pizzaPrice.toFixed(2));
     $("#display-price").show();
   });
