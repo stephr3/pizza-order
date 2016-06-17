@@ -44,8 +44,10 @@ $(function(){
     });
     //Create New Object
     var newPizza = new Pizza (size, toppings);
+    //Calculate and Display Price
     newPizza.calculateSizePrice();
     newPizza.addToppings();
-    alert("Your total is $" + newPizza.pizzaPrice.toFixed(2));
+    $("#total-price").text(newPizza.pizzaPrice.toFixed(2));
+    $("#display-price").show();
   });
 });
