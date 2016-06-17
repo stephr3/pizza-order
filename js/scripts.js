@@ -1,9 +1,9 @@
 //Business Logic
 //Set Objects
-function Order (name) {
+function Order (name, total) {
   this.orderName = name;
+  this.totalPrice = total;
   this.orderPizzas = [];
-  this.totalPrice = 0;
 }
 
 function Pizza (size, toppings, price) {
@@ -37,17 +37,12 @@ Pizza.prototype.addToppings = function () {
     }
   }
 }
-///Bug - Need to loop through each pizza in newOrder's pizzaOrder array, calculate each pizza's price, and add the pizza prices to the total price. 
-Order.prototype.calculateTotalPrice = function () {
-  var onePizzaPrice = function (order){
-    debugger;
-    (order.orderPizzas).forEach(function(object){
-      object.calculateSizePrice();
-      object.addToppings();
-      return object.pizzaPrice;
-      });
-  }
-  this.totalPrice += (onePizzaPrice(this));
+///Bug - Need to loop through each pizza in newOrder's pizzaOrder array, calculate each pizza's price, and add the pizza prices to the total price.
+Order.prototype.calculateIndividualPizzaPrices = function () {
+  (this.orderPizzas).forEach(function(object){
+    object.calculateSizePrice();
+    object.addToppings();
+  });
 }
 //User Interface Logic
 $(function(){
@@ -103,8 +98,8 @@ $(function(){
     event.preventDefault();
     //Create New Order Objects
     var name = $("#name").val();
-    var newOrder = new Order (name);
-    newOrder.totalPrice = 0;
+    var total = 0;
+    var newOrder = new Order (name, total);
     //Create New Pizza Objects
     $(".new-pizza").each(function() {
       var size = $(this).find("#select-size").val();
@@ -116,7 +111,9 @@ $(function(){
       newOrder.orderPizzas.push(newPizza);
     });
     //Calculate and Display Price
-    newOrder.calculateTotalPrice();
+    newOrder.calculateIndividualPizzaPrices();
+    console.log(newOrder);
+    debugger;
 
     $("#pizza-size").text(newPizza.pizzaSize);
     if (newPizza.pizzaToppings.length < 1) {
