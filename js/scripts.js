@@ -136,6 +136,16 @@ $(function(){
       $("ul#pizzas-ordered").append("<li>Pizza Size: " + pizza.pizzaSize + "<br>Extra Toppings: " + toppingsText + "</li><br>");
     });
     $("#total-price").text(totalDisplayPrice.toFixed(2));
+    $("#order-form-page").hide();
     $("#display-price").show();
+  });
+  $("#new-order").click(function() {
+    //Reset Form
+    document.getElementById("order-form").reset();
+    //Clear Appended Form Input Divs
+    //Clear Appended UL
+    //Hide and Show
+    $("#order-form-page").show();
+    $("#display-price").hide();
   });
 });
