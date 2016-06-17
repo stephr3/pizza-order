@@ -4,7 +4,7 @@ function Order (name, total) {
   this.orderName = name;
   this.totalPrice = total;
   this.orderPizzas = [];
-  this.deliveryAddress = [];
+  this.deliveryAddress;
 }
 function Pizza (size, toppings, price) {
   this.pizzaSize = size;
@@ -122,7 +122,8 @@ $(function(){
     });
     //Calculate Total Price
     newOrder.calculateIndividualPizzaPrices();
-    var totalDisplayPrice = newOrder.calculateTotalPrice();
+    var totalPrice = newOrder.calculateTotalPrice();
+    newOrder.totalPrice = totalPrice;
     //Display Price and Order Confirmation
     $("#user-name").text(newOrder.orderName);
     newOrder.orderPizzas.forEach(function(pizza) {
@@ -136,10 +137,21 @@ $(function(){
       var toppingsText = findToppingsText(pizza);
       $("ul#pizzas-ordered").append("<li>Pizza Size: " + pizza.pizzaSize + "<br>Extra Toppings: " + toppingsText + "</li><br>");
     });
-    $("#total-price").text(totalDisplayPrice.toFixed(2));
+    $("#total-price").text(totalPrice.toFixed(2));
     //Hide Form and Display Confimation Page
     $("#order-form-page").hide();
     $("#display-price").show();
+    //Submit Address Button Functionality
+    $("#address-form").submit(function(event){
+      event.preventDefault();
+      //Set Variables
+      var inputtedStreet = $("input#new-street").val();
+      var inputtedCity = $("input#new-city").val();
+      var inputtedState = $("input#new-state").val();
+      var inputtedAddress = new Address (inputtedStreet, inputtedCity, inputtedState);
+      newOrder.deliveryAddress = inputtedAddress;
+      console.log(newOrder);
+    });
   });
   $("#new-order").click(function() {
     //Reset Form
@@ -155,14 +167,5 @@ $(function(){
   //Add Delivery Button Functionality
   $("#add-delivery").click(function(){
     $("#delivery-form").show();
-  });
-  //Submit Address Button Functionality
-  $("#address-form").submit(function(event){
-    event.preventDefault();
-    //Set Variables
-    var inputtedStreet = $("input#new-street").val();
-    var inputtedCity = $("input#new-city").val();
-    var inputtedState = $("input#new-state").val();
-    alert(inputtedStreet + inputtedCity + inputtedState);
   });
 });
