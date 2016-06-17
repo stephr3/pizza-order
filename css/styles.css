@@ -1,3 +1,12 @@
 #display-price {
   display: none;
 }
+
+button {
+  margin-top: 2vh;
+  min-width: 160px;
+}
+
+#add-pizza {
+  min-width: 160px;
+}
