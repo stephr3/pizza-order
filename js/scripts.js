@@ -129,6 +129,13 @@ $(function(){
     // } else {
     //   $("#toppings").text((newPizza.pizzaToppings).join(", "));
     // }
+
+    // $("ul#addresses").text("");
+    // newContact.addresses.forEach(function(address) {
+    //   $("ul#addresses").append("<li>" + address.street + ", " + address.city + " " + address.state + "</li>");
+    // });
+
+    $("#user-name").text(newOrder.orderName);
     $("#total-price").text(totalDisplayPrice.toFixed(2));
     $("#display-price").show();
   });
