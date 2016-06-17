@@ -151,9 +151,12 @@ $(function(){
       var inputtedState = $("input#new-state").val();
       var inputtedAddress = new Address (inputtedStreet, inputtedCity, inputtedState);
       var inputtedTime = $("input#new-delivery-time").val();
+      //Update New Order Object
       newOrder.deliveryAddress = inputtedAddress;
       newOrder.deliveryTime = inputtedTime;
-      console.log(newOrder);
+      //Display Address and Delivery Time Confirmation
+      $("#delivery-form").hide();
+      $("#delivery-confirmation").show();
     });
   });
   $("#new-order").click(function() {
