@@ -24,7 +24,7 @@ _This is a pizza delivery app that takes multiple pizza orders, displays a total
 * _Order your pizzas_
 * _Click 'Get Delivery' if you'd like the pizza delivered_
 * _Add your address and delivery time, then click submit_
-
+* _You can also access the web app at this link: <https://stephr3.github.io/pizza-order/>_
 
 ## Pizza Time Pricing
 | Size        | Base Price           | Toppings  |
